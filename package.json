@@ -1,0 +1,19 @@
+{
+  "name": "chatinho",
+  "version": "1.0.0",
+  "description": "um pequeno chat",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "./node_modules/.bin/nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eduardobraga",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
