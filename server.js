@@ -1,10 +1,22 @@
 const express = require('express')
 const app = express()
 
-app.use('view engine', 'ejs')
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+
+app.set('view engine', 'ejs')
 
 app.get('/', (request, response) => {
-    response.send('tc de onde')
+    response.render('home/home')
 })
 
-app.listen(3001, () => { console.log('fala, fio') })
+io.on('connection', (socket) => {
+    console.log('tem gente')
+
+    socket.on('chat_message', (userMessage) => {
+        console.log(userMessage)
+        io.emit('chat_message', userMessage)
+    })
+})
+
+http.listen(3001, () => { console.log('fala, fio') })
